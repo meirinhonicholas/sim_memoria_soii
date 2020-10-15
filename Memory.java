@@ -142,6 +142,9 @@ public class Memory{
 			ExecuteProcess executor = new ExecuteProcess(this, firstBlockAvailable, process);
 			execute.execute(executor);
 			executors.add(executor);
+
+			this.getLogger().setRunnedProcess(this.getLogger().getRunnedProcess() + 1);
+			this.getLogger().addTimesProcesses(process.getTime());
 			
 			return true;
 		}

@@ -79,13 +79,12 @@ public class Main {
 		Random randomTime = new Random(System.currentTimeMillis());
 		int maxTime = 200;
 		int mean = memorySize / 2;
-		double std = mean / 3;
 		
 		while (nProcess > 0) {
-			int size = (int) Math.round(mean + (random.nextGaussian() * std));
+			int size = (int) random.nextInt(mean);
 			String id = UUID.randomUUID().toString();
 			long time = randomTime.nextInt(maxTime);
-			if (size > 0) {
+			if (size > 0 && size <= mean) {
 				processes.add(new Process(id, size, time));
 				nProcess -= 1;
 			}
