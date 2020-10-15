@@ -25,11 +25,6 @@ public class ExecuteProcess extends RecursiveAction {
 			e.printStackTrace();
 		}
 		
-		Logger logger = memory.getLogger();
-		
-		logger.setRunnedProcess(logger.getRunnedProcess() + 1);
-		logger.addTimesProcesses(process.getTime());
-		
 		memory.dealloc(firstIndexToAlloc, process);
 	}
 
